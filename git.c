@@ -5,6 +5,7 @@ git init [project-name]
 git clone [url]
 git status
 git add [filename]/[dir]
+git rm [filename]/[dir]
 git commit -m "message"
 git remote add [remote] [url]
 git pull --rebase [remote] [branch]
