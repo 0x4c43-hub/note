@@ -221,4 +221,5 @@ git rm [filename]/[dir]
 git commit -m "message"
 git remote add [remote] [url]
 git pull --rebase [remote] [branch]
+git fetch [remote]
 git push [remote] [branch]
