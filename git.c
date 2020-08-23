@@ -223,7 +223,14 @@ git push origin :branch-remote
 git branch branch-local
 git checkout branch-local
 git checkout -b branch-local
-git branch --set-upstream branch-local branch-remote
+git branch --set-upstream-to=origin/master master
+git branch -u origin/master master
+git branch -r -d origin/master
+git push --set-upstream origin master
+git push -u origin master
+git branch -vv
+git branch -r
+git branch -u origin/
 git merge branch-local
 git branch -d branch-local
 git init
