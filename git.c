@@ -215,6 +215,8 @@ git config --global user.email "[email]"
 git-keygen -t rsa -C "提示语句"
 git remote set-url origin git@github.com:0x4c43-hub/repository
 git remote set-url origin https://github.com/0x4c43-hub/repository
+git config --global credential.helper:store
+git config --global credential.helper:cache
 git remote -v
 git push origin branch-local:branch-remote
 git push origin --delete branch-remote
@@ -228,6 +230,9 @@ git branch -u origin/master master
 git branch -r -d origin/master
 git push --set-upstream origin master
 git push -u origin master
+git branch --track origin/masert  //origin/master->master
+git checkout --track origin/branch-remote
+git checkout -b branch-local --track origin/branch-remote
 git branch -vv
 git branch -r
 git branch -u origin/
