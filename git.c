@@ -213,8 +213,19 @@ $ git archive
 git config --global user.name "[name]"
 git config --global user.email "[email]"
 git-keygen -t rsa -C "提示语句"
-git remote set-url [remote] git@github.com:0x4c43-hub/repository
-git remote set-url [remote] https://github.com/0x4c43-hub/repository
+git remote set-url origin git@github.com:0x4c43-hub/repository
+git remote set-url origin https://github.com/0x4c43-hub/repository
+git remote -v
+git push origin branch-local:branch-remote
+git push origin --delete branch-remote
+git branch -r -d origin/branch 
+git push origin :branch-remote
+git branch branch-local
+git checkout branch-local
+git checkout -b branch-local
+git branch --set-upstream branch-local branch-remote
+git merge branch-local
+git branch -d branch-local
 git init
 git init [project-name]
 git clone [url]
