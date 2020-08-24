@@ -10,22 +10,22 @@ SELECT DISTINCT column_name,column_name FROM table_name;
 SELECT column_name,column_name FROM table_name WHERE column_name operator value;
 
 ### WHERE 子句中的运算符
+
 下面的运算符可以在 WHERE 子句中使用：
-运算符 		      描述
-=               等于
-<> 		          不等于。注释：在 SQL 的一些版本中，该操作符可被写成 !=
-> 		          大于
-< 	          	小于
->= 		          大于等于
-<= 		          小于等于
-BETWEEN 	      在某个范围内
-LIKE 		        搜索某种模式
-IN 		          指定针对某个列的多个可能值
+运算符描述
+=等于
+<>不等于。注释：在 SQL 的一些版本中，该操作符可被写成 !=
+>大于
+<小于
+>=大于等于
+<=小于等于
+BETWEEN在某个范围内
+LIKE搜索某种模式
+IN指定针对某个列的多个可能值
 
 SQL AND & OR 运算符
 
 如果第一个条件和第二个条件都成立，则 AND 运算符显示一条记录。
-
 如果第一个条件和第二个条件中只要有一个成立，则 OR 运算符显示一条记录。
 SQL ORDER BY 语法
 SELECT column_name,column_name
