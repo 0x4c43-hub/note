@@ -9,10 +9,10 @@ SELECT DISTINCT column_name,column_name FROM table_name;
 ## SQL WHERE 语法
 SELECT column_name,column_name FROM table_name WHERE column_name operator value;
 
-WHERE 子句中的运算符
+### WHERE 子句中的运算符
 下面的运算符可以在 WHERE 子句中使用：
 运算符 		      描述
-= 		          等于
+=               等于
 <> 		          不等于。注释：在 SQL 的一些版本中，该操作符可被写成 !=
 > 		          大于
 < 	          	小于
