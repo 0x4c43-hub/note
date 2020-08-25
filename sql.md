@@ -17,16 +17,17 @@ SELECT column_name,column_name FROM table_name WHERE column_name operator value;
 ******************************
 ### WHERE 子句中的运算符
 #### 下面的运算符可以在 WHERE 子句中使用：
-运算符        描述   
-=             等于   
-<>            不等于。注释：在 SQL 的一些版本中，该操作符可被写成 !=   
->             大于   
-<             小于   
->=            大于等于   
-<=            小于等于    
-BETWEEN       在某个范围内    
-LIKE          搜索某种模式   
-IN            指定针对某个列的多个可能值    
+| 运算符   | 描述 |
+| -----   | -----|
+|   =     | 等于 |  
+|  <>     |   不等于。注释：在 SQL 的一些版本中，该操作符可被写成 !=   |
+|>        |       大于 |  
+|<        |     小于   |
+|>=       |     大于等于|   
+|<=       |     小于等于 |   
+|BETWEEN  |     在某个范围内|    
+|LIKE     |    搜索某种模式 |  
+|IN       |     指定针对某个列的多个可能值 |   
 
 SQL AND & OR 运算符
 ====================
@@ -69,11 +70,12 @@ SELECT column_name(s) FROM table_name WHERE column_name LIKE pattern;
 在 SQL 中，通配符与 SQL LIKE 操作符一起使用。    
 SQL 通配符用于搜索表中的数据。    
 在 SQL 中，可使用以下通配符：   
-通配符 				描述
-% 				替代 0 个或多个字符
-_ 				替代一个字符
-[charlist] 			字符列中的任何单一字符
-[^charlist]或[!charlist] 	不在字符列中的任何单一字符
+|通配符 	|			描述|
+| ---| ---|
+|% |				替代 0 个或多个字符|
+|_ 			|	替代一个字符|
+|[charlist] |			字符列中的任何单一字符|
+|[^charlist]或[!charlist] |	不在字符列中的任何单一字符|
 
 ### SQL IN 语法
 SELECT column_name(s) FROM table_name WHERE column_name IN (value1,value2,...);      
