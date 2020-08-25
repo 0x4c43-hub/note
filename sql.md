@@ -3,8 +3,8 @@
 ### SELECT * FROM Websites; 读取数据表的信息。
 *********
 ### SQL SELECT 语法
-SELECT column_name,column_name FROM table_name;  
-SELECT * FROM table_name;  
+> SELECT column_name,column_name FROM table_name;  
+> SELECT * FROM table_name;  
 ****************
 ### SQL SELECT DISTINCT 语法
 SELECT DISTINCT column_name,column_name FROM table_name;
@@ -61,7 +61,7 @@ SELECT column_name(s) FROM table_name WHERE ROWNUM <= number;
 **********************
 ### SQL LIKE 语法
 SELECT column_name(s) FROM table_name WHERE column_name LIKE pattern;
-
+*********************************
 ### SQL 通配符
 在 SQL 中，通配符与 SQL LIKE 操作符一起使用。    
 SQL 通配符用于搜索表中的数据。    
