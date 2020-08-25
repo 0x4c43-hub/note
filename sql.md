@@ -1,4 +1,3 @@
-![ri](http://pic.sogou.com/pics/recommend?category=%E5%A3%81%E7%BA%B8&imageid=11901642#%E4%B8%96%E7%95%8C%E9%A3%8E%E5%85%89)
 ## [菜鸟教程](https://www.runoob.com/sql)   
 <https://www.runoob.com/sql>
 ********************************
