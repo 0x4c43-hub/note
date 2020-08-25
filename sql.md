@@ -8,7 +8,7 @@ SELECT * FROM table_name;
 ****************
 ### SQL SELECT DISTINCT 语法
 SELECT DISTINCT column_name,column_name FROM table_name;
-——————————————————————————————————
+************************
 ### SQL WHERE 语法
 SELECT column_name,column_name FROM table_name WHERE column_name operator value;
 ******************************
@@ -70,17 +70,17 @@ _ 				替代一个字符
 [charlist] 			字符列中的任何单一字符
 [^charlist]或[!charlist] 	不在字符列中的任何单一字符
 
-SQL IN 语法
-SELECT column_name(s) FROM table_name WHERE column_name IN (value1,value2,...);
-SELECT column_name(s) FROM table_name WHERE column_name NOT IN (value1,value2,...);
-
-SQL BETWEEN 语法
-SELECT column_name(s) FROM table_name WHERE column_name BETWEEN value1 AND value2; 
-SELECT column_name(s) FROM table_name WHERE column_name NOT BETWEEN value1 AND value2; 
-
-列的 SQL 别名语法
-SELECT column_name AS alias_name FROM table_name;
-
-表的 SQL 别名语法
-SELECT column_name(s) FROM table_name AS alias_name;
+### SQL IN 语法
+SELECT column_name(s) FROM table_name WHERE column_name IN (value1,value2,...);    
+SELECT column_name(s) FROM table_name WHERE column_name NOT IN (value1,value2,...);   
+******************
+### SQL BETWEEN 语法
+SELECT column_name(s) FROM table_name WHERE column_name BETWEEN value1 AND value2;     
+SELECT column_name(s) FROM table_name WHERE column_name NOT BETWEEN value1 AND value2;  
+******************
+### 列的 SQL 别名语法
+SELECT column_name AS alias_name FROM table_name;  
+*******************
+### 表的 SQL 别名语法
+SELECT column_name(s) FROM table_name AS alias_name;  
 
