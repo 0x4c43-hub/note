@@ -49,21 +49,23 @@ UPDATE table_name SET column1=value1,column2=value2,... WHERE some_column=some_v
 ### SQL DELETE 语法
 DELETE FROM table_name WHERE some_column=some_value;
 **********************
-SQL SELECT TOP, LIMIT, ROWNUM 子句
-SQL Server / MS Access 语法
-SELECT TOP number|percent column_name(s) FROM table_name;
-MySQL 语法
+## SQL SELECT TOP, LIMIT, ROWNUM 子句
+### SQL Server / MS Access 语法
+SELECT TOP number|percent column_name(s) FROM table_name;  
+*********************
+### MySQL 语法
 SELECT column_name(s) FROM table_name LIMIT number;
-Oracle 语法
+**********************
+### Oracle 语法
 SELECT column_name(s) FROM table_name WHERE ROWNUM <= number;
-
-SQL LIKE 语法
+**********************
+### SQL LIKE 语法
 SELECT column_name(s) FROM table_name WHERE column_name LIKE pattern;
 
-SQL 通配符
-在 SQL 中，通配符与 SQL LIKE 操作符一起使用。
-SQL 通配符用于搜索表中的数据。
-在 SQL 中，可使用以下通配符：
+### SQL 通配符
+在 SQL 中，通配符与 SQL LIKE 操作符一起使用。    
+SQL 通配符用于搜索表中的数据。    
+在 SQL 中，可使用以下通配符：   
 通配符 				描述
 % 				替代 0 个或多个字符
 _ 				替代一个字符
@@ -71,8 +73,8 @@ _ 				替代一个字符
 [^charlist]或[!charlist] 	不在字符列中的任何单一字符
 
 ### SQL IN 语法
-SELECT column_name(s) FROM table_name WHERE column_name IN (value1,value2,...);    
-SELECT column_name(s) FROM table_name WHERE column_name NOT IN (value1,value2,...);   
+SELECT column_name(s) FROM table_name WHERE column_name IN (value1,value2,...);      
+SELECT column_name(s) FROM table_name WHERE column_name NOT IN (value1,value2,...);    
 ******************
 ### SQL BETWEEN 语法
 SELECT column_name(s) FROM table_name WHERE column_name BETWEEN value1 AND value2;     
