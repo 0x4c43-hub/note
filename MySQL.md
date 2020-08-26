@@ -69,12 +69,12 @@
 * CREATE TABLE table_name (column_name column_type);
 ### 以下例子中我们将在 RUNOOB 数据库中创建数据表runoob_tbl：
 
-    CREATE TABLE IF NOT EXISTS `runoob_tbl`(
-      `runoob_id` INT UNSIGNED AUTO_INCREMENT,
-       `runoob_title` VARCHAR(100) NOT NULL,
-       `runoob_author` VARCHAR(40) NOT NULL,
-       `submission_date` DATE,
-       PRIMARY KEY ( `runoob_id` )
+    CREATE TABLE IF NOT EXISTS runoob_tbl(
+       runoob_id INT UNSIGNED AUTO_INCREMENT,
+       runoob_title VARCHAR(100) NOT NULL,
+       runoob_author VARCHAR(40) NOT NULL,
+       submission_date DATE,
+       PRIMARY KEY ( runoob_id )
     )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 >实例解析：
 >>* 如果你不想字段为 NULL 可以设置字段的属性为 NOT NULL， 在操作数据库时如果输入该字段的数据为NULL ，就会报错。
