@@ -1,4 +1,4 @@
-apt-get install mysql-server //服务器
+### apt-get install mysql-server //服务器
 apt-get install mysql-client //客服端
 apt-get install libmysqlclient-dev //库
 编译时链接 -lmysqlclient
@@ -48,9 +48,9 @@ DOUBLE	8 bytes	(-1.797 693 134 862 315 7 E+308，-2.225 073 858 507 201 4 E-308)
 DECIMAL	对DECIMAL(M,D) ，如果M>D，为M+2否则为D+2	依赖于M和D的值	依赖于M和D的值	小数值
 日期和时间类型
 |类型|	大小( bytes)|	范围|	格式|	用途 |
+| ---|---|---|---|---|
 |DATE	|3|	1000-01-01/9999-12-31|	YYYY-MM-DD	|日期值|
 |TIME	|3	|'-838:59:59'/'838:59:59'|	HH:MM:SS	|时间值或持续时间|
 |YEAR	|1|	1901/2155	|YYYY	|年份值|
 |DATETIME|	8|	1000-01-01 00:00:00/9999-12-31 23:59:59|	YYYY-MM-DD HH:MM:SS|	混合日期和时间值|
-|TIMESTAMP|	4|	1970-01-01 00:00:00/2038结束时间是第 2147483647 秒，北京时间 2038-1-19 11:14:07，格林尼治时间 2038年1月19日 凌晨 03:14:07|
-YYYYMMDD HHMMSS	|混合日期和时间值，时间戳|
+|TIMESTAMP|	4|	1970-01-01 00:00:00/2038结束时间是第 2147483647 秒，北京时间 2038-1-19 11:14:07，格林尼治时间 2038年1月19日 凌晨 03:14:07|YYYYMMDD HHMMSS	|混合日期和时间值，时间戳|
