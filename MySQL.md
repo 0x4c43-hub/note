@@ -163,7 +163,8 @@ WITH ROLLUP 可以实现在分组统计数据基础上再进行相同的统计�
 * 隔离性：数据库允许多个并发事务同时对其数据进行读写和修改的能力，隔离性可以防止多个事务并发执行时由于交叉执行而导致数据的不一致。事务隔离分为不同级别，包括读未提交（Read uncommitted）、读提交（read committed）、可重复读（repeatable read）和串行化（Serializable）。
 * 持久性：事务处理结束后，对数据的修改就是永久的，即便系统故障也不会丢失。
 
-        在 MySQL 命令行的默认设置下，事务都是自动提交的，即执行 SQL 语句后就会马上执行 COMMIT 操作。因此要显式地开启一个事务务须使用命令      BEGIN 或 START TRANSACTION，或者执行命令 SET AUTOCOMMIT=0，用来禁止使用当前会话的自动提交。
+        在 MySQL 命令行的默认设置下，事务都是自动提交的，即执行 SQL 语句后就会马上执行 COMMIT 操作。
+        因此要显式地开启一个事务务须使用命令 EGIN 或 START TRANSACTION，或者执行命令 SET AUTOCOMMIT=0，用来禁止使用当前会话的自动提交。
 ### 事务控制语句：
 * BEGIN 或 START TRANSACTION 显式地开启一个事务；
 
