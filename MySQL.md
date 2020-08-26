@@ -82,8 +82,17 @@
 >>* AUTO_INCREMENT定义列为自增的属性，一般用于主键，数值会自动加1。
 >>* PRIMARY KEY关键字用于定义列为主键。 您可以使用多列来定义主键，列间以逗号分隔。
 >>* ENGINE 设置存储引擎，CHARSET 设置编码。
+#### AUTO_INCREMENT说明：
 
-MySQL 删除数据表
+1.如果把一个NULL插入到一个AUTO_INCREMENT数据列里去，MySQL将自动生成下一个序列编号。编号从1开始，并1为基数递增。
+
+2.把0插入AUTO_INCREMENT数据列的效果与插入NULL值一样。但不建议这样做，还是以插入NULL值为好。
+
+3.当插入记录时，没有为AUTO_INCREMENT明确指定值，则等同插入NULL值。
+
+4.当插入记录时，如果为AUTO_INCREMENT数据列明确指定了一个数值，则会出现两种情况，情况一，如果插入的值与已有的编号重复，则会出现出错信息，因为AUTO_INCREMENT数据列的值必须是唯一的；情况二，如果插入的值大于已编号的值，则会把该插入到数据列中，并使在下一个编号将从这个新值开始递增。也就是说，可以跳过一些编号。
+
+### MySQL 删除数据表
 * DROP TABLE table_name ;
 
 ### MySQL 插入数据
