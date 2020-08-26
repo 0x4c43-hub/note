@@ -7,31 +7,30 @@
 ### sudo service mysql status //服务状态
 ### sudo service mysql restart //重启服务
 ### sudo vi /etc/mysql/debian.cnf
-mysql -udebian-sys-maint -p
-use mysql //打开mysql数据库
-update user set authentication_string=SHA1/MD5('new password') where user='root' and Host='localhost'; //设置root用户密码,mysql 8移除了PASSWORD函数，可使用SHA1或者MD5
-set password for root@localhost=
-select user,authenticatian_string from user; //查看用户和密码
-update user set plugin="mysql_native_password";
-flush privileges; //刷新权限配置
-sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
+### mysql -udebian-sys-maint -p
+### use mysql //打开mysql数据库
+### update user set authentication_string=SHA1/MD5('new password') where user='root' and Host='localhost'; //设置root用户密码,mysql 8移除了PASSWORD函数，可使用SHA1或者MD5
+### select user,authenticatian_string from user; //查看用户和密码
+### update user set plugin="mysql_native_password";
+### flush privileges; //刷新权限配置
+### sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
 最后一行加入skip-grant-tables //跳过权限验证
-CREATE USER <用户名>@<主机名> IDENTIFIED BY SHA1/MD5('password'); //创建用户
-GRANT privileges/ALL ON databasename.tablename TO 'username'@'host; //授权
+### CREATE USER <用户名>@<主机名> IDENTIFIED BY SHA1/MD5('password'); //创建用户
+### GRANT privileges/ALL ON databasename.tablename TO 'username'@'host; //授权   
 以上授权用户不能给其他用户授权,可使用下面的命令
-GRANT privileges ON databasename.tablename TO 'username'@'host WITH GRANT OPTION;
-SET PASSWORD FOR 'username'@'host'=PASSWORD('password'); //设置用户密码
-SET PASSWORD=PASSWORD('password');//设置当前用户密码
-REVOKE privileges ON databasename.tablename FROM 'username'@'host;
-DROP USER 'username'@'host'; //删除用户
+### GRANT privileges ON databasename.tablename TO 'username'@'host WITH GRANT OPTION;
+### SET PASSWORD FOR 'username'@'host'=PASSWORD('password'); //设置用户密码
+### SET PASSWORD=PASSWORD('password');//设置当前用户密码
+### REVOKE privileges ON databasename.tablename FROM 'username'@'host;
+### DROP USER 'username'@'host'; //删除用户
 
-show databases [like '数据库名']; // 查看当前用户权限范围内的数据库
-MySQL 创建数据库
-CREATE DATABASE 数据库名;
-mysqladmin -u root -p create RUNOOB
-drop 命令删除数据库
-drop database <数据库名>;
-mysqladmin -u root -p drop RUNOOB
+### show databases [like '数据库名']; // 查看当前用户权限范围内的数据库
+###MySQL 创建数据库
+* CREATE DATABASE 数据库名;
+* mysqladmin -u root -p create RUNOOB
+### drop 命令删除数据库
+* drop database <数据库名>;
+* mysqladmin -u root -p drop RUNOOB
 ### MySQL 选择数据库
 * use RUNOOB;
 ### MySQL 数据类型
