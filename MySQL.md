@@ -1,3 +1,4 @@
+[MySQL教程](https://www.runoob.com/mysql/)
 #### apt-get install mysql-server //服务器
 #### apt-get install mysql-client //客服端
 #### apt-get install libmysqlclient-dev //库
@@ -25,6 +26,7 @@
 #### DROP USER 'username'@'host'; //删除用户
 
 ### show databases [like '数据库名']; // 查看当前用户权限范围内的数据库
+### show tables [like '数据表名']; // 查看当前用户权限范围内的数据表
 ### MySQL 创建数据库
 * CREATE DATABASE 数据库名;
 * mysqladmin -u root -p create RUNOOB
@@ -91,6 +93,8 @@
 3.当插入记录时，没有为AUTO_INCREMENT明确指定值，则等同插入NULL值。
 
 4.当插入记录时，如果为AUTO_INCREMENT数据列明确指定了一个数值，则会出现两种情况，情况一，如果插入的值与已有的编号重复，则会出现出错信息，因为AUTO_INCREMENT数据列的值必须是唯一的；情况二，如果插入的值大于已编号的值，则会把该插入到数据列中，并使在下一个编号将从这个新值开始递增。也就是说，可以跳过一些编号。
+
+5.AUTO_INCREMENT_INCREMEN设置起始值，AUTO_INCREMENT_OFFICE设置增幅。
 
 ### MySQL 删除数据表
 * DROP TABLE table_name ;
@@ -248,3 +252,80 @@ ALTER TABLE testalter_tbl ALTER i DROP DEFAULT; //删除字段默认值
 * 复制表内容
     * INSERT INTO targetTable SELECT * FROM sourceTable;
 ### MySQL元数据    
+|命令	描述|
+|---|---|
+|SELECT VERSION( )|	服务器版本信息|
+|SELECT DATABASE( )|	当前数据库名 (或者返回空)|
+|SELECT USER( )|	当前用户名|
+|SHOW STATUS	|服务器状态|
+|SHOW VARIABLES	|服务器配置变量|
+### MySQL 序列使用
+MySQL 序列是一组整数：1, 2, 3, ...，由于一张数据表只能有一个字段自增主键， 如果你想实现其他字段也实现自动增加，就可以使用MySQL序列来实现。
+#### 使用 AUTO_INCREMENT
+#### 获取AUTO_INCREMENT值
+* 使用 SQL中的LAST_INSERT_ID( ) 函数
+#### 重置序列
+如果你删除了数据表中的多条记录，并希望对剩下数据的AUTO_INCREMENT列进行重新排列。
+* ALTER TABLE insect DROP id;//删除id列
+* ALTER TABLE insect ADD id INT UNSIGNED NOT NULL AUTO_INCREMENT FIRST,ADD PRIMARY KEY (id);//添加id列
+#### 设置序列的开始值
+* create .....)auto_increment=100;
+* ALTER TABLE t AUTO_INCREMENT = 100;
+**********************
+### MySQL 处理重复数据
+#### 防止表中出现重复数据
+* PRIMARY KEY（主键） 或者 UNIQUE（唯一） 索引来保证数据的唯一性。
+* INSERT IGNORE INTO 与 INSERT INTO 的区别就是 INSERT IGNORE INTO 会忽略数据库中已经存在的数据，如果数据库没有数据，就插入新的数据，如果有数据的话就跳过这条数据。这样就可以保留数据库中已经存在数据，达到在间隙中插入数据的目的。
+* REPLACE INTO 如果存在 primary 或 unique 相同的记录，则先删除掉。再插入新记录。
+#### 统计重复数据
+SELECT COUNT(\*) as repetitions, last_name, first_name
+    -> FROM person_tbl
+    -> GROUP BY last_name, first_name
+    -> HAVING repetitions > 1;
+#### 过滤重复数据
+SELECT **DISTINCT** last_name, first_name
+    -> FROM person_tbl;
+#### 删除重复数据
+**第一种方法**
+* CREATE TABLE tmp SELECT last_name, first_name, sex FROM person_tbl  GROUP BY (last_name, first_name, sex);
+* DROP TABLE person_tbl;
+* ALTER TABLE tmp RENAME TO person_tbl;
+**第二种方法**
+* ALTER IGNORE TABLE person_tbl ADD PRIMARY KEY (last_name, first_name);
+### MySQL 及 SQL 注入
+* 所谓SQL注入，就是通过把SQL命令插入到Web表单递交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令。
+### MySQL 导出数据
+#### 使用 SELECT ... INTO OUTFILE 语句导出数据
+* SELECT * FROM runoob_tbl INTO OUTFILE '/tmp/runoob.txt';
+你可以通过命令选项来设置数据输出的指定格式，以下实例为导出 CSV 格式:
+SELECT * FROM passwd INTO OUTFILE '/tmp/runoob.txt'
+    -> FIELDS TERMINATED BY ',' ENCLOSED BY '"'
+    -> LINES TERMINATED BY '\r\n';
+.............................未完
+### MySQL 导入数据		
+1.mysql 命令导入
+* mysql -u用户名  -p密码  < 要导入的数据库数据(runoob.sql)
+2.source 命令导入
+* mysql> create database abc;      # 创建数据库
+* mysql> use abc;                  # 使用已创建的数据库 
+* mysql> set names utf8;           # 设置编码
+* mysql> source /home/abc/abc.sql  # 导入备份数据库
+3.使用 LOAD DATA 导入数据
+* LOAD DATA LOCAL INFILE 'dump.txt' INTO TABLE mytbl;
+4.使用 mysqlimport 导入数据
+* mysqlimport -u root -p --local mytbl dump.txt
+* mysqlimport -u root -p --local --fields-terminated-by=":" --lines-terminated-by="\r\n"  mytbl dump.txt
+* mysqlimport -u root -p --local --columns=b,c,a mytbl dump.txt
+### mysqlimport的常用选项介绍
+|选项	|功能|
+|---|---|
+|-d or --delete	|新数据导入数据表中之前删除数据数据表中的所有信息|
+|-f or --force	|不管是否遇到错误，mysqlimport将强制继续插入数据|
+|-i or --ignore	|mysqlimport跳过或者忽略那些有相同唯一 关键字的行， 导入文件中的数据将被忽略。|
+|-l or -lock-tables	|数据被插入之前锁住表，这样就防止了， 你在更新数据库时，用户的查询和更新受到影响。|
+|-r or -replace	|这个选项与－i选项的作用相反；此选项将替代 表中有相同唯一关键字的记录。|
+|--fields-enclosed- by= char	|指定文本文件中数据的记录时以什么括起的， 很多情况下 数据以双引号括起。 默认的情况下数据是没有被字符括起的。|
+|--fields-terminated- by=char	|指定各个数据的值之间的分隔符，在句号分隔的文件中， 分隔符是句号。您可以用此选项指定数据之间的分隔符。 默认的分隔符是跳格符（Tab）|
+|--lines-terminated- by=str	|此选项指定文本文件中行与行之间数据的分隔字符串 或者字符。 默认的情况下mysqlimport以newline为行分隔符。 您可以选择用一个字符串来替代一个单个的字符： 一个新行或者一个回车。|
+|-v| 显示版本（version）|
+|-p |提示输入密码（password）|
