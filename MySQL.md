@@ -133,7 +133,7 @@ SELECT field1, field2,...fieldN FROM table_name WHERE field1 LIKE condition1 [AN
 * ALL: 可选，返回所有结果集，包含重复数据。
 
 ### MySQL 排序
-SELECT field1, field2,...fieldN FROM table_name1, table_name2... [WHERE conditions] ORDER BY field1 [ASC [DESC][默认 ASC]], [field2...] [ASC [DESC][默认 ASC]];
+SELECT field1, field2,...fieldN FROM table_name1, table_name2... [WHERE conditions] ORDER BY field1 [ASC][DESC][默认 ASC]], [field2...] [ASC [DESC][默认 ASC]];
 ### MySQL GROUP BY 语句
 * GROUP BY 语句根据一个或多个列对结果集进行分组。
 * 在分组的列上我们可以使用 COUNT, SUM, AVG,等函数。
@@ -290,7 +290,7 @@ SELECT **DISTINCT** last_name, first_name
 * CREATE TABLE tmp SELECT last_name, first_name, sex FROM person_tbl  GROUP BY (last_name, first_name, sex);
 * DROP TABLE person_tbl;
 * ALTER TABLE tmp RENAME TO person_tbl;
-**第二种方法**
+**第二种方法**   
 * ALTER IGNORE TABLE person_tbl ADD PRIMARY KEY (last_name, first_name);
 ### MySQL 及 SQL 注入
 * 所谓SQL注入，就是通过把SQL命令插入到Web表单递交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令。
@@ -301,7 +301,7 @@ SELECT **DISTINCT** last_name, first_name
 SELECT * FROM passwd INTO OUTFILE '/tmp/runoob.txt'
     -> FIELDS TERMINATED BY ',' ENCLOSED BY '"'
     -> LINES TERMINATED BY '\r\n';
-.............................未完
+..........................................................................未完
 ### MySQL 导入数据		
 1.mysql 命令导入
 * mysql -u用户名  -p密码  < 要导入的数据库数据(runoob.sql)
@@ -329,3 +329,5 @@ SELECT * FROM passwd INTO OUTFILE '/tmp/runoob.txt'
 |--lines-terminated- by=str	|此选项指定文本文件中行与行之间数据的分隔字符串 或者字符。 默认的情况下mysqlimport以newline为行分隔符。 您可以选择用一个字符串来替代一个单个的字符： 一个新行或者一个回车。|
 |-v| 显示版本（version）|
 |-p |提示输入密码（password）|
+### MySQL 函数
+[MySQL 函数](https://www.runoob.com/mysql/mysql-functions.html)
