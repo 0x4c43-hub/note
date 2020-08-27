@@ -331,3 +331,5 @@ SELECT * FROM passwd INTO OUTFILE '/tmp/runoob.txt'
 |-p |提示输入密码（password）|
 ### MySQL 函数
 [MySQL 函数](https://www.runoob.com/mysql/mysql-functions.html)
+### MySQL 运算符
+[MySQL 运算符](https://www.runoob.com/mysql/mysql-operator.html)
