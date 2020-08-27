@@ -215,8 +215,15 @@ git config --global user.email "[email]"
 git-keygen -t rsa -C "提示语句"
 git remote set-url origin git@github.com:0x4c43-hub/repository
 git remote set-url origin https://github.com/0x4c43-hub/repository
-git config --global credential.helper:store
-git config --global credential.helper:cache
+git config --global credential.helper store //永久
+如果想使用全局，则设置为： 
+git config –global credential.helper store –file=git_credentails. 
+如果仅仅设置当前项目有效，则进入项目代码目录下，运行： 
+git config credential.helper store –file=.git_credentails. 
+git config --global credential.helper reset //清除
+git config --global credential.helper cache //默认15min
+git config --global credential.helper 'cache -timeout 3600' //设置时间
+git remote add origin https://username:password@xxx.git //添加远程仓库时携带用户信息
 git remote -v
 git push origin branch-local:branch-remote
 git push origin --delete branch-remote
