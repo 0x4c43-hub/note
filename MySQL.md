@@ -225,4 +225,26 @@ ALTER TABLE testalter_tbl ALTER i DROP DEFAULT; //删除字段默认值
 * ALTER TABLE testalter_tbl ADD PRIMARY KEY (i); //设置列为主键索引
 * ALTER TABLE testalter_tbl DROP PRIMARY KEY; //删除主键
 ### 显示索引信息
-* SHOW INDEX FROM table_name; \G(格式化输出信息）
+* SHOW INDEX FROM table_name \G(格式化输出信息）;
+### MySQL 临时表
+临时表只在当前连接可见，当关闭连接时，Mysql会自动删除表并释放所有空间。
+* CREATE **TEMPORARY** TABLE SalesSummary (product_name VARCHAR(50) NOT NULL, total_sales DECIMAL(12,2) NOT NULL DEFAULT 0.00, avg_unit_price DECIMAL(7,2) NOT NULL DEFAULT 0.00, total_units_sold INT UNSIGNED NOT NULL DEFAULT 0);
+### 删除MySQL 临时表
+默认情况下，当你断开与数据库的连接后，临时表就会自动被销毁。当然你也可以在当前MySQL会话使用 DROP TABLE 命令来手动删除临时表。
+* DROP TABLE SalesSummary
+### MySQL 复制表
+如果我们需要完全的复制MySQL的数据表，包括表的结构，索引，默认值等。 如果仅仅使用CREATE TABLE ... SELECT 命令，是无法实现的。只会复制表数据和表结构，不会有任何约束。
+#### 第一种方法
+* 步骤一：获取数据表的完整结构。
+    * SHOW CREATE TABLE runoob_tbl \G;
+* 步骤二：修改SQL语句的数据表名，并执行SQL语句。
+* 步骤三：执行完第二步骤后，你将在数据库中创建新的克隆表 clone_tbl。 如果你想拷贝数据表的数据你可以使用 INSERT INTO...[AS] SELECT 语句来实现。
+    * INSERT INTO clone_tbl (runoob_id,runoob_title,runoob_author, submission_date) SELECT runoob_id,runoob_title,runoob_author,submission_date FROM runoob_tbl;
+* 执行以上步骤后，你将完整的复制表，包括表结构及表数据。    
+#### 第二种方法
+* 复制表结构
+    * CREATE TABLE targetTable LIKE sourceTable;
+    * create table 新表 select * from 旧表 where 1=2；//当 where 条件不成立时，只复制表结构，没有任务数据
+* 复制表内容
+    * INSERT INTO targetTable SELECT * FROM sourceTable;
+### MySQL元数据    
