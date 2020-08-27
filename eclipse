@@ -1,0 +1,58 @@
+安装eclipse
+首先下载jdk和eclipse
+jdk官方下载网址：http://www.oracle.com/technetwork/java/javase/downloads/index.html
+
+官方有时候下的很慢很慢，百度网盘现成的jdk8：https://pan.baidu.com/s/1gXg47NEL99EhHvBT8eMZjA
+
+eclipse官方下载地址：http://www.eclipse.org/downloads/packages/eclipse-ide-java-developers/heliossr1/
+
+百度网盘现成eclipse-jee-luna-SR2：https://pan.baidu.com/s/1HibWF7FAbP3vCNXu5BPR5g
+sudo mkdir /opt/jvm
+sudo mv /home/jdk-8u172-linux-x64.tar.gz /opt/jvm
+sudo tar zxvf jdk-8u172-linux-x64.tar.gz /opt/jvm
+sudo vi /etc/profile
+export JAVA_HOME=/opt/jvm/jdk1.8.0_172
+
+export JRE_HOME=${JAVA_HOME}/jre
+
+export CLASSPATH=.:＄{JAVA_HOME}/lib:${JRE_HOME}/lib
+
+export PATH=＄{JAVA_HOME}/bin:$PATH
+./etc/profile
+在本机上/etc/profile只在当前终端有效
+vi ~/.bashrc 即可
+java -version
+sudo  mv  /home/eclipse-jee-luna-SR2-linux-gtk-x86_64.tar.gz  /opt
+cd /opt  
+sudo tar zxvf  eclipse-jee-luna-SR2-linux-gtk-x86_64.tar.gz
+cd /usr/share/applications
+sudo vim eclipse.desktop
+            [Desktop Entry]
+            Encoding=UTF-8
+            Name=eclipse
+            Comment=Eclipse IDE
+            Exec=/opt/eclipse/eclipse        
+            Icon=/opt/eclipse/icon.xpm
+            Terminal=false
+            starttupNotify=true
+            Type=Application
+            Categories=Application;Development;
+            
+ 进入Eclipse的目录，输入“ln -s /java/jdk1.8.0_172/jre jre”
+ sudo vi eclipse.ini
+--launcher.appendVmargs
+-vm 
+/opt/jvm/jdk1.8.0_172/bin/java
+/opt/jvm/jdk1.8.0_172/jre/bin/java
+/opt/jvm/jdk1.8.0_172/jre/bin
+-vmargs
+-Dosgi.requiredJavaVersion=1.6
+-XX:MaxPermSize=256m
+-Xms40m
+-Xmx512m
+
+启动方式
+点launcher（显示应用程序）里的图标
+vi ~.bashrc
+export PATH=/opt/eclipse:$PATH
+在命令行下输入eclipse即可
