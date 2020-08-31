@@ -1,4 +1,0 @@
-*.md filter=lfs diff=lfs merge=lfs -text
-markdown.md filter=lfs diff=lfs merge=lfs -text
-MySQL.md filter=lfs diff=lfs merge=lfs -text
-sql.md filter=lfs diff=lfs merge=lfs -text
