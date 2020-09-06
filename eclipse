@@ -26,7 +26,7 @@ sudo  mv  /home/eclipse-jee-luna-SR2-linux-gtk-x86_64.tar.gz  /opt
 cd /opt  
 sudo tar zxvf  eclipse-jee-luna-SR2-linux-gtk-x86_64.tar.gz
 cd /usr/share/applications
-sudo vim eclipse.desktop
+ sudo vim eclipse.desktop
             [Desktop Entry]
             Encoding=UTF-8
             Name=eclipse
@@ -53,6 +53,8 @@ sudo vim eclipse.desktop
 
 启动方式
 点launcher（显示应用程序）里的图标
-vi ~.bashrc
+ vi ~.bashrc
 export PATH=/opt/eclipse:$PATH
 在命令行下输入eclipse即可
+.....................................
+_______________________________________
