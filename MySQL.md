@@ -95,7 +95,6 @@
 #### apt-get install mysql-client //客服端
 #### apt-get install libmysqlclient-dev //库
 #### 编译时链接 -lmysqlclient
-sudo mysql_secure_installation
 #### sudo service mysql start //开启服务
 #### sudo service mysql stop //停止服务
 #### sudo service mysql status //服务状态
