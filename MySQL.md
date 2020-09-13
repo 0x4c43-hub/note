@@ -95,6 +95,7 @@
 #### apt-get install mysql-client //客服端
 #### apt-get install libmysqlclient-dev //库
 #### 编译时链接 -lmysqlclient
+sudo mysql_secure_installation
 #### sudo service mysql start //开启服务
 #### sudo service mysql stop //停止服务
 #### sudo service mysql status //服务状态
@@ -188,6 +189,14 @@
 
 5.AUTO_INCREMENT_INCREMEN设置起始值，AUTO_INCREMENT_OFFICE设置增幅。
 
+### 查看表结构
+* desc tablename;
+* describe tablename;
+* show create table tablename;
+* show fields from tablename;
+* show full fields from tablename;
+* show columns from tablename;
+* show table status like '%tablename%' \G;
 ### MySQL 删除数据表
 * DROP TABLE table_name ;
 
@@ -425,3 +434,4 @@ SELECT * FROM passwd INTO OUTFILE '/tmp/runoob.txt'
 [MySQL 函数](https://www.runoob.com/mysql/mysql-functions.html)
 ### MySQL 运算符
 [MySQL 运算符](https://www.runoob.com/mysql/mysql-operator.html)
+lichao
